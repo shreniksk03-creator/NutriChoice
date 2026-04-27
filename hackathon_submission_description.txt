@@ -1,0 +1,14 @@
+Project Name: NutriChoice - Smart Food & Health Habit Web Application
+
+Problem Statement:
+Many individuals struggle to make informed, healthy food choices on a daily basis due to a lack of nutritional awareness or personalized guidance. Fast-paced lifestyles often lead to eating whatever is convenient, negatively impacting long-term health. NutriChoice aims to solve this by providing a simple, accessible meal logger combined with a "Smart AI Advisor".
+
+Architecture & Solution:
+NutriChoice is a modern web application built using Next.js (App Router) and React. The frontend is styled with Bootstrap 5 to ensure a clean, responsive, and mobile-friendly grid layout. For rapid development and offline support, state is managed using React Context and persisted locally via LocalStorage. The UI adheres to strict WCAG accessibility standards (including semantic HTML, high-contrast colors, and ARIA labels) so that it is usable by everyone, including those relying on screen readers.
+
+Google Services Usage:
+1. Google Gemini API:
+The application leverages the Gemini API (specifically `gemini-pro`) to power the "Smart AI Advisor". When users log their meals, the data is sent to a secure Next.js serverless API route, which constructs a prompt for Gemini. The AI analyzes the day's calorie intake and food types, returning personalized, localized alternative suggestions formatted in JSON (e.g., suggesting a fresh side salad if greens are missing). A robust fallback mock system is in place to handle missing API keys during development/testing.
+
+2. Google Cloud Platform (GCP) Deployment Readiness:
+The repository includes a multi-stage `Dockerfile` and a `cloudbuild.yaml` file, optimizing the Next.js standalone build for seamless, scalable deployment to Google Cloud Run via Google Cloud Build.
